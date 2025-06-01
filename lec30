@@ -1,0 +1,31 @@
+CODE -- 
+
+size = input('What size pizza you want(S/M/L)?')
+bill = 0
+if size == 's' or size == 'S':
+  print('Small Pizza price is 100 Rs.')
+  bill += 100
+elif size == 'm' or size == 'M':
+  print('Medium Pizza price is 200 Rs.')
+  bill += 200
+else:
+  print('Large Pizza price is 300 Rs.')
+  bill += 300
+add_pepperoni = input('Do you want pepperoni(y/n)?') 
+if add_pepperoni == 'y' or add_pepperoni == 'Y':
+  if size == 's' or size == 'S':
+    bill += 30
+  else :
+    bill += 50
+extra_cheese = input('Do you want extra cheese (y/n)?')
+if extra_cheese == 'y' or extra_cheese == 'Y':
+  bill += 20
+print(f'Your final bill is {bill}')
+
+OUTPUT --
+
+What size pizza you want(S/M/L)?s
+Small Pizza price is 100 Rs.
+Do you want pepperoni(y/n)?n
+Do you want extra cheese (y/n)?n
+Your final bill is 100
