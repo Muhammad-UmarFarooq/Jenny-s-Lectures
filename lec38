@@ -1,0 +1,29 @@
+CODE  -- 
+
+row1 = [0,0,0]
+row2 = [0,0,0]
+row3 = [0,0,0]
+matrix = [row1,row2,row3]
+print(f'{row1}\n{row2}\n{row3}')
+position = input('Enter the position where you want to hide money')
+row_num = int(position[0])
+col_num = int(position[1])
+row_select = matrix[row_num - 1]
+row_select[col_num - 1] = 'x'
+print(f'{row1}\n{row2}\n{row3}')
+
+# 23
+# row_select = matrix[1]   # This points to row2
+# row_select[2] = 'x'      # This changes the 3rd element of row2 to 'x'
+# Because row_select is just another name (reference) to the actual row inside the matrix, changing it also updates the matrix automatically.
+
+
+OUTPUT  -- 
+
+[0, 0, 0]
+[0, 0, 0]
+[0, 0, 0]
+Enter the position where you want to hide money 13
+[0, 0, 'x']
+[0, 0, 0]
+[0, 0, 0]
