@@ -1,0 +1,36 @@
+CODE  --
+
+import random
+game_choice = ['rock','paper','Scissor']
+user_choice = int(input('Enter your choice :\n Type \n 0 for Rock \n 1 for Paper \n 2 for Scissors. '))
+if(user_choice > 2 or user_choice < 0) :
+   print('Invalid Choice')
+else:
+  print(f'Your choice {game_choice[user_choice]}')
+  comp_choice = random.randint(0,2)
+  print('Computer Choice :\n',comp_choice)
+  print(f'Computer Choice {game_choice[comp_choice]}')
+
+  if(comp_choice == user_choice) :
+   print('It\'s a draw')
+  elif comp_choice == 0 and user_choice == 2 :
+   print('You Lose.')
+  elif user_choice == 0 and comp_choice == 2 :
+   print('You Win.')
+  elif comp_choice > user_choice :
+   print('You Lose.')
+  elif user_choice > comp_choice :      
+   print('You Win.')
+
+
+OUTPUT  --
+
+ Type 
+ 0 for Rock 
+ 1 for Paper 
+ 2 for Scissors. 1
+Your choice paper
+Computer Choice :
+ 2
+Computer Choice Scissor
+You Lose.
