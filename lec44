@@ -1,5 +1,6 @@
 CODE  --
 
+#( Find avg height without using len(),sum() )
 list1 =input('Enter list of heights seperated by space:')
 list2 = list1.split()
 # print(list2)
