@@ -1,0 +1,26 @@
+CODE  --
+
+list1 =input('Enter list of heights seperated by space:')
+list2 = list1.split()
+# print(list2)
+count = 0
+for i in list2:
+    count += 1
+# print(count)
+for i in range(count):
+     list2[i] = int(list2[i])
+print(list2)
+total = 0
+for i in list2:
+    total += i
+# print(total)
+avg = total / count
+print('Average height is ',round(avg))
+
+
+O/P  --
+
+
+Enter list of heights seperated by space: 1 2 3
+[1, 2, 3]
+Average height is  2
