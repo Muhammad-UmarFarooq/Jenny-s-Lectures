@@ -1,0 +1,25 @@
+CODE  --
+
+# Without len,max functions
+list1 = input('Enter number seperated by space:')
+list2 = list1.split()
+print(list2)
+count = 0
+for i in list2:
+    count += 1
+for i in range(0,count):
+    list2[i] = int(list2[i])
+print(list2)
+maxi = list2[0]
+for i in list2:
+    if(i > maxi):
+        maxi = i
+print('The maximum element is :',maxi)
+
+O/P  --
+
+
+Enter number seperated by space: 1 45 87 32 43 54
+['1', '45', '87', '32', '43', '54']
+[1, 45, 87, 32, 43, 54]
+The maximum element is : 87
