@@ -1,0 +1,40 @@
+# year % 4 == 0 means "Is the year divisible by 4?"
+
+# If yes, it might be a leap year. Check more.
+
+# Now check: is the year divisible by 100?
+
+# If yes, it's a special case → might NOT be a leap year.
+
+# If it's also divisible by 400, it is a leap year.
+
+# If divisible by 100 but not by 400 → Not a leap year
+
+# If divisible by 4 but not divisible by 100 → Leap year ✅
+
+# If the year is not divisible by 4 → Not a leap year ❌
+
+CODE --   Tells how many days are there in a particular year and month
+
+def leap_year(year):
+  if year%4==0:
+    if year%100==0:
+      if year%400==0:
+        return True
+      else:
+        return False
+    else:
+      return True
+  else:
+    return False
+
+def days_in_month(year,month):
+  days_list=[31,28,31,30,31,30,31,31,30,31,30,31]
+  if leap_year(year) and month==2:
+    return 29
+  else:
+    return days_list[month-1]
+year = int(input('Enter a year:'))
+month = int(input('Enter a month:'))
+days = days_in_month(year,month)
+print(days)
