@@ -1,0 +1,141 @@
+#  Higher Lower Game
+
+#file1  =>  logo.py
+
+#Program
+
+
+game_logo = ''' 
+
+#     #                                                           
+#     # #  ####  #    # ###### #####                              
+#     # # #    # #    # #      #    #                             
+####### # #      ###### #####  #    #                             
+#     # # #  ### #    # #      #####                              
+#     # # #    # #    # #      #   #                              
+#     # #  ####  #    # ###### #    #                             
+                              #                                   
+                              #        ####  #    # ###### #####  
+                              #       #    # #    # #      #    # 
+                              #       #    # #    # #####  #    # 
+                              #       #    # # ## # #      #####  
+                              #       #    # ##  ## #      #   #  
+                              #######  ####  #    # ###### #    # 
+                                                                  
+'''
+
+vs = '''
+#     #  #####  
+#     # #     # 
+#     # #       
+#     #  #####  
+ #   #        # 
+  # #   #     # 
+   #     #####  '''
+
+
+---------------------------------------------------------------
+
+#file2  =>  database.py
+
+#Program
+
+data = [
+    {
+        'name':"Jenny's Lectures",
+        'follower_count':1,
+        'description':'Youtuber',
+        'country':'India'
+    },
+    {
+        'name':'Cristiano Ronaldo',
+        'follower_count':600,
+        'description':'Footballer',
+        'country':'Portugal'
+    },
+    {
+        'name':'Narendra Modi',
+        'follower_count':90, 
+        'description':'Politician',
+        'country':'India'      
+    },
+    {
+        'name':'Lionel Messi',
+        'follower_count':550,
+        'description':'Footballer',
+        'country':'Argentina'
+    },
+    {
+        'name': 'Fit Tuber',
+        'follower_count': 7,
+        'description': 'YouTuber',
+        'country': 'India'
+    }
+]
+
+
+-------------------------------------------------------------------
+
+
+#file3  =>  game.py
+
+# Program
+
+import logo
+import database
+import random
+import os
+
+
+def display_account(account):
+    name = account['name']
+    description = account['description']
+    country = account['country']
+    return f"{name}, a {description}, from {country}"
+
+def check_answer(guess, follower_1, follower_2):
+    if follower_1 > follower_2:
+        correct_answer = 1
+    else:
+        correct_answer = 2
+
+    if guess == correct_answer:
+        return True
+    else:
+        return False
+
+print(logo.game_logo)
+
+score = 0
+continue_flag = True
+
+account_2 = random.choice(database.data)
+
+while continue_flag:
+    account_1 = account_2
+    account_2 = random.choice(database.data)
+    while account_1 == account_2:
+        account_2 = random.choice(database.data)
+
+    print(f'Compare 1: {display_account(account_1)}')
+    print(logo.vs)
+    print(f'Compare 2: {display_account(account_2)}')
+
+    guess = int(input("Who has more followers? Type 1 or 2: "))
+    
+
+    follower_1 = account_1['follower_count']
+    follower_2 = account_2['follower_count']
+
+    is_correct = check_answer(guess, follower_1, follower_2)
+
+    os.system('cls')
+    print(logo.game_logo)
+    if is_correct:
+        score += 1
+        print(f"You are right. Your score is {score}.")
+    else:
+        print(f"Sorry, that's wrong.. Your final score is :{score}")
+        continue_flag = False
+
+----------------------------------------------------------------
